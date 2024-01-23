@@ -1,0 +1,8 @@
+.root {
+   background-color: var(--mantine-color-sito-4);
+   color: var(--mantine-color-sito-3);
+   &:hover {
+    background-color: var(--mantine-color-sito-3);
+    color: var(--mantine-color-sito-0);
+   }
+  }
