@@ -1,0 +1,30 @@
+.link {
+  color: var(--mantine-color-white);
+  transition: background-color 150ms ease;
+  border-radius: 12px;
+
+  &:hover {
+    background-color: var(--mantine-color-site-1);
+  }
+
+  &[data-active] {
+    background-color: var(--mantine-color-site-7);
+    font-weight: 800;
+    color: var(--mantine-color-site-5); // o un colore per l’attivo
+  }
+}
+
+// .link_mobile {
+//   color: var(--mantine-color-white);
+//   transition: background-color 150ms ease;
+
+//   &:hover {
+//     background-color: var(--mantine-color-site-6);
+//   }
+
+//   &[data-active] {
+//     background-color: var(--mantine-color-site-7);
+//     font-weight: 800;
+//     color: var(--mantine-color-site-5); // o un colore per l’attivo
+//   }
+// }

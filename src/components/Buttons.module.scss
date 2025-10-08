@@ -1,0 +1,13 @@
+.primary {
+  background-color: var(--mantine-color-site-1);
+  color: var(--mantine-color-site-2);
+  font-weight: 600;
+  transition: background-color 150ms ease;
+  border-radius: 8px;
+
+  &:hover {
+    color: var(--mantine-color-site-1);
+    background-color: var(--mantine-color-site-6);
+    border: 1px solid var(--mantine-color-site-1);
+  }
+}
