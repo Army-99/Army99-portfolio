@@ -84,6 +84,18 @@ export default function Projects() {
   return (
     <Stack align="center" ref={ref} className="whiteText" mt={"10vh"} mb={"10vh"}>
       <Grid gutter={"xl"} grow>
+        <Grid.Col span={12}>
+          <BoxProject
+            title="Data Monitoring & Analytics"
+            activities={[
+              { title: "Web scraping and data collection", icon: <IconSearch size={80} /> },
+              { title: "Real-time data tracking", icon: <IconFileSearch size={80} /> },
+              { title: "Advanced analytics dashboard", icon: <IconDatabase size={80} /> },
+              { title: "Alert system for data anomalies", icon: <IconBell size={80} /> },
+            ]}
+          />
+        </Grid.Col>
+
         <Grid.Col span={6}>
           <BoxProject
             title="Portfolio & Asset Management"
@@ -108,12 +120,11 @@ export default function Projects() {
 
         <Grid.Col span={12}>
           <BoxProject
-            title="Data Monitoring & Analytics"
+            title="Web3 Fantasy Football Platform"
             activities={[
-              { title: "Web scraping and data collection", icon: <IconSearch size={80} /> },
-              { title: "Real-time data tracking", icon: <IconFileSearch size={80} /> },
-              { title: "Advanced analytics dashboard", icon: <IconDatabase size={80} /> },
-              { title: "Alert system for data anomalies", icon: <IconBell size={80} /> },
+              { title: "Automatically manage user funds", icon: <IconSettings size={80} /> },
+              { title: "Smart Contracts", icon: <IconDatabase size={80} /> },
+              { title: "Live Actions", icon: <IconTrendingUp size={80} /> },
             ]}
           />
         </Grid.Col>

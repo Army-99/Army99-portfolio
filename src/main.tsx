@@ -11,7 +11,7 @@ export const theme = createTheme({
   fontFamily: "Montserrat, sans-serif",
   colors: {
     site: [
-      "#000000",
+      "#0a001b",
       "#5516dc",
       "#f0ebff",
       "#000000",
