@@ -7,7 +7,7 @@ import Projects from "./Projects";
 
 function Home() {
   return (
-    <Stack gap={"lg"}>
+    <Stack gap={0}>
       <HeroSection />
 
       <Automate />

@@ -26,7 +26,7 @@ export function Layout(props: LayoutProps) {
       <AppShell.Header
         style={{ backgroundColor: theme.colors.site[0], borderBottom: `1px solid rgba(255, 255, 255, 0.2)` }}
       >
-        <Flex justify={"flex-end"} p={10}>
+        <Flex justify={"space-around"} p={10}>
           <CustomHeaderLink label="Who Am I" valueToScroll="whoami" />
           <CustomHeaderLink label="Experience" valueToScroll="experience" />
           <CustomHeaderLink label="Projects" valueToScroll="projects" />

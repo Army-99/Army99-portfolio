@@ -51,15 +51,19 @@ export default function Experience() {
       <Stack p={20} align="center">
         <Space h={50} />
 
-        <Title size={40} className="whiteText" order={3} ta={"center"}>
+        <Title size={60} className="whiteText" order={3} ta={"center"}>
           EXPERIENCE
         </Title>
 
-        {jobs.map((job, i) => (
-          <Box miw={1000}>
-            <JobSection key={i} {...job} />
-          </Box>
-        ))}
+        <Box>
+          <Stack gap={50}>
+            {jobs.map((job, i) => (
+              <Box miw={1000}>
+                <JobSection key={i} {...job} />
+              </Box>
+            ))}
+          </Stack>
+        </Box>
       </Stack>
     </Stack>
   );

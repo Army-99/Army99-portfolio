@@ -1,7 +1,6 @@
 import { Stack, Title } from "@mantine/core";
 import { motion } from "framer-motion";
 import VantaBackground from "./Layout/VantaBackground";
-import SlideSeparator from "./SlideSeparator";
 
 export default function HeroSection() {
   return (
@@ -43,7 +42,6 @@ export default function HeroSection() {
           </Stack>
         </Stack>
       </VantaBackground>
-      <SlideSeparator />
     </Stack>
   );
 }

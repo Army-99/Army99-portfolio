@@ -1,11 +1,11 @@
-import { Box, Center, Group, Image, Stack, Text } from "@mantine/core";
+import { Box, Center, Group, Image, Stack, Text, Title } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { IconMessage } from "@tabler/icons-react";
 import { useEffect, useRef } from "react";
 import img from "../../assets/white-black-ca.jpg";
 import { useScrollStore } from "../../store/scrollStore";
-import PrimaryButton from "../PrimaryButton";
-import { useDisclosure } from "@mantine/hooks";
 import ContactModal from "../ModalContact";
+import PrimaryButton from "../PrimaryButton";
 
 export default function WhoAmI() {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,8 +16,8 @@ export default function WhoAmI() {
   }, [registerSection]);
 
   return (
-    <Stack h={"50vh"} justify="center" ref={ref} mb={"20vh"}>
-      <Center mt={"30vh"}>
+    <Stack className="gradient" justify="center" ref={ref}>
+      <Center mt={"10vh"} mb={"10vh"}>
         <Group p={5} gap={"lg"} align="center" justify="center" wrap="nowrap">
           <Specializes />
           <Image h={700} w={600} src={img} radius={"lg"} fit="cover" />
@@ -47,11 +47,11 @@ function Specializes() {
           </Text>
         </Box>
 
-        <Group justify="end" mt={20}>
-          <PrimaryButton size={"xl"} onClick={open}>
+        <Group justify="center" mt={20}>
+          <PrimaryButton onClick={open} mih={75}>
             <Group>
-              <IconMessage size={30} />
-              Let’s work together
+              <IconMessage size={40} />
+              <Title order={3}>Let's work together!</Title>
             </Group>
           </PrimaryButton>
         </Group>

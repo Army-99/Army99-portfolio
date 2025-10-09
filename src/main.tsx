@@ -8,7 +8,7 @@ import "./main.css";
 import Home from "./pages/Home.tsx";
 
 export const theme = createTheme({
-  fontFamily: "Montserrat, sans-serif",
+  fontFamily: "'Special Elite', monospace",
   colors: {
     site: [
       "#0a001b",

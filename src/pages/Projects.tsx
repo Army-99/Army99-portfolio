@@ -83,8 +83,8 @@ export default function Projects() {
 
   return (
     <Stack align="center" ref={ref} className="whiteText" mt={"10vh"} mb={"10vh"}>
-      <Grid gutter={"xl"} grow>
-        <Grid.Col span={12}>
+      <Grid grow>
+        <Grid.Col span={3}>
           <BoxProject
             title="Data Monitoring & Analytics"
             activities={[
@@ -96,8 +96,9 @@ export default function Projects() {
           />
         </Grid.Col>
 
-        <Grid.Col span={6}>
+        <Grid.Col span={3}>
           <BoxProject
+            link="https://assetportfolio-gmfmfydkhkfwebgg.westeurope-01.azurewebsites.net"
             title="Portfolio & Asset Management"
             activities={[
               { title: "Portfolio Analysis", icon: <IconChartPie size={80} /> },
@@ -107,7 +108,7 @@ export default function Projects() {
           />
         </Grid.Col>
 
-        <Grid.Col span={6}>
+        <Grid.Col span={3}>
           <BoxProject
             title="E-Invoicing Solution"
             activities={[
@@ -118,7 +119,7 @@ export default function Projects() {
           />
         </Grid.Col>
 
-        <Grid.Col span={12}>
+        <Grid.Col span={3}>
           <BoxProject
             title="Web3 Fantasy Football Platform"
             activities={[
@@ -170,17 +171,21 @@ export default function Projects() {
 //   );
 // }
 
-function BoxProject({ title, activities }: { title?: string; activities: IconActivityProps[] }) {
+function BoxProject({ title, activities }: { title: string; activities: IconActivityProps[]; link?: string }) {
   return (
     <Box p={20}>
-      <Title ta={"center"} fz={35} className="whiteText" mb={20}>
-        {title ?? "Project Title"}
-      </Title>
+      <Stack>
+        <Title ta={"center"} fz={35} className="whiteText" mb={20}>
+          {title}
+        </Title>
+      </Stack>
+
       <Group justify="center" align="start" gap={30}>
         {activities.map((activity, index) => (
           <IconActivity key={index} {...activity} />
         ))}
       </Group>
+      {/* <Center>{link && <PrimaryButton onClick={() => window.open(link, "_blank")}>View Project</PrimaryButton>}</Center> */}
     </Box>
   );
 }

@@ -1,8 +1,17 @@
-/* body {
-  background: url("./assets/background3.jpg") no-repeat center;
-  background-size: cover;
-} */
+@font-face {
+  font-family: "Monospace Typewriter";
+  src: url("./assets/fonts/MonospaceTypewriter.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
+body {
+  font-family: "Monospace Typewriter", monospace;
+}
 .whiteText {
   color: var(--mantine-color-site-2);
+}
+
+.gradient {
+  background: linear-gradient(to bottom, #000000, #0a001b);
 }

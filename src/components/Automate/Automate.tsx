@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 
 export default function Automate() {
   return (
-    <Stack h={"70vh"} justify="center">
+    <Stack h={"70vh"} justify="center" bg={"site.4"}>
       <Title order={1} ta={"center"} fw={700} className="whiteText">
         Automate your business
       </Title>
@@ -18,23 +18,23 @@ export default function Automate() {
       <Box p={20}>
         <Grid grow>
           <Grid.Col span={4}>
-            <SkillCard icon={<IconSettings className="whiteText" size={50} />} title="AUTOMATION" />
+            <SkillCard icon={<IconSettings className="whiteText" size={150} />} title="AUTOMATION" />
           </Grid.Col>
 
           <Grid.Col span={4}>
-            <SkillCard icon={<IconCoinBitcoin className="whiteText" size={50} />} title="WEB3" />
+            <SkillCard icon={<IconCoinBitcoin className="whiteText" size={150} />} title="WEB3" />
           </Grid.Col>
 
           <Grid.Col span={4}>
-            <SkillCard icon={<IconRobot className="whiteText" size={50} />} title="AI" />
+            <SkillCard icon={<IconRobot className="whiteText" size={150} />} title="AI" />
           </Grid.Col>
 
           <Grid.Col span={4}>
-            <SkillCard icon={<IconBolt className="whiteText" size={50} />} title="VELOCITY" />
+            <SkillCard icon={<IconBolt className="whiteText" size={150} />} title="VELOCITY" />
           </Grid.Col>
 
           <Grid.Col span={4}>
-            <SkillCard icon={<IconSeeding className="whiteText" size={50} />} title="GROWTH" />
+            <SkillCard icon={<IconSeeding className="whiteText" size={150} />} title="GROWTH" />
           </Grid.Col>
         </Grid>
       </Box>
@@ -52,7 +52,7 @@ function SkillCard({ icon, title }: { icon: ReactNode; title: string }) {
     >
       <Group justify="center" wrap="nowrap">
         {icon}
-        <Title ta={"center"} className="whiteText">
+        <Title size={40} ta={"center"} className="whiteText">
           {title}
         </Title>
       </Group>
