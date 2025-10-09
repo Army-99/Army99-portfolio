@@ -2,6 +2,21 @@
   background-color: var(--mantine-color-site-1);
   color: var(--mantine-color-site-2);
   font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background-color 0.25s ease, color 0.25s ease, border 0.25s ease;
+
+  &:hover {
+    color: var(--mantine-color-site-1);
+    background-color: var(--mantine-color-site-6);
+    border: 1px solid var(--mantine-color-site-1);
+  }
+}
+
+.transparent {
+  background-color: transparent;
+  color: var(--mantine-color-site-2);
+  font-weight: 600;
   transition: background-color 150ms ease;
   border-radius: 8px;
 

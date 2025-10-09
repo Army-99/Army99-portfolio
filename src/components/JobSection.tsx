@@ -15,8 +15,8 @@ export default function JobSection(props: JobSectionProps) {
       <Grid.Col span={3}>
         <Flex h={"100%"} justify={"flex-end"} align={"center"}>
           <Stack align="end">
-            <Text fz={40}>{props.dateStart}</Text>
             {props.dateEnd ? <Text fz={40}>{props.dateEnd} </Text> : <Text fz={40}>Current</Text>}
+            <Text fz={40}>{props.dateStart}</Text>
           </Stack>
 
           <Divider orientation="vertical" mx={20} />

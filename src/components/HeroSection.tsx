@@ -9,8 +9,8 @@ export default function HeroSection() {
         <Stack justify="end" h={"100%"}>
           <Stack className="whiteText" justify="center">
             <motion.div
-              initial={{ opacity: 0, y: 50 }} // stato iniziale
-              whileInView={{ opacity: 1, y: 0 }} // stato finale
+              initial={{ opacity: 0 }} // stato iniziale
+              whileInView={{ opacity: 1 }} // stato finale
               transition={{ duration: 2, ease: "easeOut", delay: 1 }} // durata e tipo di animazione
               style={{ marginBottom: -50 }}
             >
@@ -20,8 +20,8 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 50 }} // stato iniziale
-              whileInView={{ opacity: 1, y: 0 }} // stato finale
+              initial={{ opacity: 0 }} // stato iniziale
+              whileInView={{ opacity: 1 }} // stato finale
               transition={{ duration: 1, ease: "easeOut" }} // durata e tipo di animazione
             >
               <Title ta={"center"} size={200}>
@@ -30,9 +30,9 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 50 }} // stato iniziale
-              whileInView={{ opacity: 1, y: 0 }} // stato finale
-              transition={{ duration: 2, ease: "easeOut", delay: 1 }} // durata e tipo di animazione
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 2, ease: "easeOut", delay: 1 }}
               style={{ marginTop: -50 }}
             >
               <Title ta={"end"} size={30} className="whiteText">

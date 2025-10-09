@@ -1,5 +1,5 @@
-import { Stack, Title, Space, Box, Grid, Group } from "@mantine/core";
-import { IconSettings, IconCoinBitcoin, IconRobot, IconBolt, IconSeeding } from "@tabler/icons-react";
+import { Box, Grid, Group, Stack, Title } from "@mantine/core";
+import { IconBolt, IconCoinBitcoin, IconRobot, IconSeeding, IconSettings } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
@@ -13,9 +13,7 @@ export default function Automate() {
         Empowering companies through intelligent, data-driven systems.
       </Title>
 
-      <Space h={50} />
-
-      <Box p={20}>
+      <Box p={20} mt={"10vh"} mr={50} ml={50}>
         <Grid grow>
           <Grid.Col span={4}>
             <SkillCard icon={<IconSettings className="whiteText" size={150} />} title="AUTOMATION" />
@@ -42,20 +40,29 @@ export default function Automate() {
   );
 }
 
+const MotionDiv = motion.div;
+
 function SkillCard({ icon, title }: { icon: ReactNode; title: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }} // stato iniziale
-      whileInView={{ opacity: 1, y: 0 }} // stato finale
-      transition={{ duration: 1, ease: "easeOut" }} // durata e tipo di animazione
-      style={{ minWidth: 400, height: 150 }}
+    <MotionDiv
+      whileHover={{ scale: 1.1 }}
+      transition={{ type: "spring" }}
+      style={{ display: "inline-block", width: "100%" }}
     >
-      <Group justify="center" wrap="nowrap">
-        {icon}
-        <Title size={40} ta={"center"} className="whiteText">
-          {title}
-        </Title>
-      </Group>
-    </motion.div>
+      <MotionDiv
+        initial={{ opacity: 0, y: 50 }} // stato iniziale
+        whileInView={{ opacity: 1, y: 0 }} // stato finale
+        transition={{ duration: 1, ease: "easeOut" }} // durata e tipo di animazione
+        style={{ minWidth: 400, height: 150 }}
+      >
+        <Group justify="center" wrap="nowrap">
+          {icon}
+
+          <Title size={40} ta={"center"} className="whiteText">
+            {title}
+          </Title>
+        </Group>
+      </MotionDiv>
+    </MotionDiv>
   );
 }

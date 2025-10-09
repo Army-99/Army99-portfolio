@@ -1,4 +1,6 @@
 import { Button, ButtonProps } from "@mantine/core";
+import { motion } from "framer-motion";
+import { forwardRef } from "react";
 import styles from "./Buttons.module.scss";
 
 export type Props = ButtonProps & {
@@ -6,10 +8,21 @@ export type Props = ButtonProps & {
   type?: "button" | "submit" | "reset";
 };
 
-export default function PrimaryButton({ children, onClick, type = "button", ...rest }: Props) {
+const MotionDiv = motion.div;
+
+const PrimaryButton = forwardRef<HTMLButtonElement, Props>(({ children, onClick, type = "button", ...rest }, ref) => {
   return (
-    <Button className={styles.primary} variant="filled" onClick={onClick} type={type} {...rest}>
-      {children}
-    </Button>
+    <MotionDiv
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 250, damping: 15 }}
+      style={{ display: "inline-block" }}
+    >
+      <Button ref={ref} variant="filled" onClick={onClick} type={type} {...rest} className={styles.primary}>
+        {children}
+      </Button>
+    </MotionDiv>
   );
-}
+});
+
+export default PrimaryButton;

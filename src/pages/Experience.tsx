@@ -1,4 +1,5 @@
 import { Stack } from "@mantine/core";
+import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import JobSection, { JobSectionProps } from "../components/JobSection";
 import { useScrollStore } from "../store/scrollStore";
@@ -38,6 +39,8 @@ const jobs: JobSectionProps[] = [
   },
 ];
 
+const MotionDiv = motion.div;
+
 export default function Experience() {
   const ref = useRef<HTMLDivElement>(null);
   const registerSection = useScrollStore((s) => s.registerSection);
@@ -52,7 +55,14 @@ export default function Experience() {
       <Stack mt={"10vh"} mb={50} justify="center">
         <Stack gap={50}>
           {jobs.map((job, i) => (
-            <JobSection key={i} {...job} />
+            <MotionDiv
+              key={i}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.5, ease: "linear", delay: i * 0.3 }}
+            >
+              <JobSection {...job} />
+            </MotionDiv>
           ))}
         </Stack>
       </Stack>

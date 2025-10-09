@@ -1,11 +1,12 @@
 import { Box, Center, Group, Image, Stack, Text, Title } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
 import { IconMessage } from "@tabler/icons-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import img from "../../assets/white-black-ca.jpg";
 import { useScrollStore } from "../../store/scrollStore";
-import ContactModal from "../ModalContact";
+import ContactSection from "../ContactSection";
 import PrimaryButton from "../PrimaryButton";
+import CustomTooltip from "../CustomTooltip";
+import { motion } from "framer-motion";
 
 export default function WhoAmI() {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,7 +21,13 @@ export default function WhoAmI() {
       <Center mt={"20vh"} mb={"10vh"}>
         <Group p={5} gap={"lg"} align="center" justify="center" wrap="nowrap">
           <Specializes />
-          <Image h={700} w={600} src={img} radius={"lg"} fit="cover" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1.5, ease: "linear" }}
+          >
+            <Image h={700} w={600} src={img} radius={"lg"} fit="cover" />
+          </motion.div>
         </Group>
       </Center>
     </Stack>
@@ -28,7 +35,7 @@ export default function WhoAmI() {
 }
 
 function Specializes() {
-  const [opened, { open, close }] = useDisclosure(false);
+  const [opened, setOpened] = useState(false);
 
   return (
     <>
@@ -48,16 +55,16 @@ function Specializes() {
         </Box>
 
         <Group justify="center" mt={20}>
-          <PrimaryButton onClick={open} mih={75}>
-            <Group>
-              <IconMessage size={40} />
-              <Title order={3}>Let's work together!</Title>
-            </Group>
-          </PrimaryButton>
+          <CustomTooltip label={<ContactSection />} opened={opened}>
+            <PrimaryButton mih={75} onClick={() => setOpened(!opened)}>
+              <Group>
+                <IconMessage size={40} />
+                <Title order={3}>Let's work together!</Title>
+              </Group>
+            </PrimaryButton>
+          </CustomTooltip>
         </Group>
       </Stack>
-
-      {opened && <ContactModal onClose={close} />}
     </>
   );
 }

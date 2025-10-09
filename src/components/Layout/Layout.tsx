@@ -1,8 +1,9 @@
 import { AppShell, Flex, useMantineTheme } from "@mantine/core";
+import { useState } from "react";
+import ContactSection from "../ContactSection";
+import CustomTooltip from "../CustomTooltip";
 import CustomHeaderLink from "./CustomHeaderLink";
 import { FooterSocial } from "./Footer";
-import { useState } from "react";
-import ContactModal from "../ModalContact";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -12,7 +13,7 @@ export function Layout(props: LayoutProps) {
   // const [modalContact, setModalContact] = useState<CustomModalProps>();
   // const [cookiesBanner, setCookiesBanner] = useState<CustomModalProps>();
   const theme = useMantineTheme();
-  const [showModal, setShowModal] = useState(false);
+  const [opened, setOpened] = useState(false);
 
   return (
     <AppShell
@@ -30,13 +31,12 @@ export function Layout(props: LayoutProps) {
           <CustomHeaderLink label="Who Am I" valueToScroll="whoami" />
           <CustomHeaderLink label="Experience" valueToScroll="experience" />
           <CustomHeaderLink label="Projects" valueToScroll="projects" />
-          <CustomHeaderLink label="Contact Me" valueToScroll="contact" onClick={() => setShowModal(true)} />
+          <CustomTooltip label={<ContactSection />} opened={opened} position="bottom-end">
+            <CustomHeaderLink label="Contact Me" onClick={() => setOpened(!opened)} />
+          </CustomTooltip>
         </Flex>
       </AppShell.Header>
-      <AppShell.Main style={{ backgroundColor: theme.colors.site[0] }}>
-        {props.children}
-        {showModal && <ContactModal onClose={() => setShowModal(false)} />}
-      </AppShell.Main>
+      <AppShell.Main style={{ backgroundColor: theme.colors.site[0] }}>{props.children}</AppShell.Main>
       <AppShell.Footer
         style={{ backgroundColor: theme.colors.site[0], borderTop: `1px solid rgba(255, 255, 255, 0.2)` }}
       >
