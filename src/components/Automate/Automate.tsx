@@ -5,8 +5,8 @@ import { ReactNode } from "react";
 
 export default function Automate() {
   return (
-    <Stack h={"70vh"} justify="center" bg={"site.4"}>
-      <Title order={1} ta={"center"} fw={700} className="whiteText">
+    <Stack justify="center" bg={"site.4"}>
+      <Title order={1} ta={"center"} fw={700} className="whiteText" mt={"15vh"}>
         Automate your business
       </Title>
       <Title order={2} ta={"center"} fw={700} className="whiteText">

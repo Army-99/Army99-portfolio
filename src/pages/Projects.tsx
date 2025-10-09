@@ -1,4 +1,4 @@
-import { Box, Grid, Group, Stack, Text, Title } from "@mantine/core";
+import { Box, Group, SimpleGrid, Stack, Text, Title } from "@mantine/core";
 import {
   IconBell,
   IconChartBar,
@@ -83,53 +83,45 @@ export default function Projects() {
 
   return (
     <Stack align="center" ref={ref} className="whiteText" mt={"10vh"} mb={"10vh"}>
-      <Grid grow>
-        <Grid.Col span={3}>
-          <BoxProject
-            title="Data Monitoring & Analytics"
-            activities={[
-              { title: "Web scraping and data collection", icon: <IconSearch size={80} /> },
-              { title: "Real-time data tracking", icon: <IconFileSearch size={80} /> },
-              { title: "Advanced analytics dashboard", icon: <IconDatabase size={80} /> },
-              { title: "Alert system for data anomalies", icon: <IconBell size={80} /> },
-            ]}
-          />
-        </Grid.Col>
+      <SimpleGrid cols={4}>
+        <BoxProject
+          title="Data Monitoring & Analytics"
+          activities={[
+            { title: "Web scraping and data collection", icon: <IconSearch size={80} /> },
+            { title: "Real-time data tracking", icon: <IconFileSearch size={80} /> },
+            { title: "Advanced analytics dashboard", icon: <IconDatabase size={80} /> },
+            { title: "Alert system for data anomalies", icon: <IconBell size={80} /> },
+          ]}
+        />
 
-        <Grid.Col span={3}>
-          <BoxProject
-            link="https://assetportfolio-gmfmfydkhkfwebgg.westeurope-01.azurewebsites.net"
-            title="Portfolio & Asset Management"
-            activities={[
-              { title: "Portfolio Analysis", icon: <IconChartPie size={80} /> },
-              { title: "Analytics for market trends", icon: <IconChartBar size={80} /> },
-              { title: "Interactive chart asset and performance", icon: <IconTrendingUp size={80} /> },
-            ]}
-          />
-        </Grid.Col>
+        <BoxProject
+          link="https://assetportfolio-gmfmfydkhkfwebgg.westeurope-01.azurewebsites.net"
+          title="Portfolio & Asset Management"
+          activities={[
+            { title: "Portfolio Analysis", icon: <IconChartPie size={80} /> },
+            { title: "Analytics for market trends", icon: <IconChartBar size={80} /> },
+            { title: "Interactive chart asset and performance", icon: <IconTrendingUp size={80} /> },
+          ]}
+        />
 
-        <Grid.Col span={3}>
-          <BoxProject
-            title="E-Invoicing Solution"
-            activities={[
-              { title: "Electronic tracking and invoice", icon: <IconFileImport size={80} /> },
-              { title: "Company and client management", icon: <IconSettings size={80} /> },
-              { title: "Interactive chart asset and performance", icon: <IconLock size={80} /> },
-            ]}
-          />
-        </Grid.Col>
+        <BoxProject
+          title="E-Invoicing Solution"
+          activities={[
+            { title: "Electronic tracking and invoice", icon: <IconFileImport size={80} /> },
+            { title: "Company and client management", icon: <IconSettings size={80} /> },
+            { title: "Interactive chart asset and performance", icon: <IconLock size={80} /> },
+          ]}
+        />
 
-        <Grid.Col span={3}>
-          <BoxProject
-            title="Web3 Fantasy Football Platform"
-            activities={[
-              { title: "Automatically manage user funds", icon: <IconSettings size={80} /> },
-              { title: "Smart Contracts", icon: <IconDatabase size={80} /> },
-              { title: "Live Actions", icon: <IconTrendingUp size={80} /> },
-            ]}
-          />
-        </Grid.Col>
-      </Grid>
+        <BoxProject
+          title="Web3 Fantasy Football Platform"
+          activities={[
+            { title: "Automatically manage user funds", icon: <IconSettings size={80} /> },
+            { title: "Smart Contracts", icon: <IconDatabase size={80} /> },
+            { title: "Live Actions", icon: <IconTrendingUp size={80} /> },
+          ]}
+        />
+      </SimpleGrid>
 
       {/* <Stack gap={50}>
         {projects.map((job, i) => (
@@ -175,16 +167,16 @@ function BoxProject({ title, activities }: { title: string; activities: IconActi
   return (
     <Box p={20}>
       <Stack>
-        <Title ta={"center"} fz={35} className="whiteText" mb={20}>
+        <Title ta={"center"} fz={45} className="whiteText" mb={20} mih={120}>
           {title}
         </Title>
       </Stack>
 
-      <Group justify="center" align="start" gap={30}>
+      <Stack mt={40}>
         {activities.map((activity, index) => (
           <IconActivity key={index} {...activity} />
         ))}
-      </Group>
+      </Stack>
       {/* <Center>{link && <PrimaryButton onClick={() => window.open(link, "_blank")}>View Project</PrimaryButton>}</Center> */}
     </Box>
   );
@@ -197,11 +189,11 @@ type IconActivityProps = {
 
 function IconActivity({ title, icon }: IconActivityProps) {
   return (
-    <Stack align="center">
+    <Group justify="center">
       {icon}
       <Text ta={"center"} maw={150} ml={10} className="whiteText" fz={20} fw={700}>
         {title}
       </Text>
-    </Stack>
+    </Group>
   );
 }

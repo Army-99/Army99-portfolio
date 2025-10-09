@@ -17,7 +17,7 @@ export default function WhoAmI() {
 
   return (
     <Stack className="gradient" justify="center" ref={ref}>
-      <Center mt={"10vh"} mb={"10vh"}>
+      <Center mt={"20vh"} mb={"10vh"}>
         <Group p={5} gap={"lg"} align="center" justify="center" wrap="nowrap">
           <Specializes />
           <Image h={700} w={600} src={img} radius={"lg"} fit="cover" />

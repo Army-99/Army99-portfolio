@@ -1,5 +1,5 @@
-import { Flex, Grid, List, Stack, Text, Title } from "@mantine/core";
-import { getDateString } from "../utils/DateUtils";
+import { Divider, Flex, Grid, Group, List, Stack, Text, Title } from "@mantine/core";
+import { IconMapPin } from "@tabler/icons-react";
 
 export type JobSectionProps = {
   title: string;
@@ -11,27 +11,35 @@ export type JobSectionProps = {
 
 export default function JobSection(props: JobSectionProps) {
   return (
-    <Grid className="whiteText">
+    <Grid className="whiteText" w={"95%"}>
       <Grid.Col span={3}>
-        <Flex p={20}>
-          <Text ta={"right"}>{getDateString(props.dateStart)}</Text>
-          {props.dateEnd ? <Text> - {getDateString(props.dateEnd)} </Text> : <Text> - Current</Text>}
+        <Flex h={"100%"} justify={"flex-end"} align={"center"}>
+          <Stack align="end">
+            <Text fz={40}>{props.dateStart}</Text>
+            {props.dateEnd ? <Text fz={40}>{props.dateEnd} </Text> : <Text fz={40}>Current</Text>}
+          </Stack>
+
+          <Divider orientation="vertical" mx={20} />
         </Flex>
       </Grid.Col>
 
       <Grid.Col span={9}>
-        <Stack>
+        <Stack gap={"lg"}>
           <Flex justify={"space-between"} mb={10}>
-            <Flex direction={"column"}>
+            <Stack>
               <Title fz={40}>{props.title}</Title>
-              <Title order={4}>{props.subtitle}</Title>
-            </Flex>
+
+              <Group>
+                <IconMapPin size={30} />
+                <Title order={4}>{props.subtitle}</Title>
+              </Group>
+            </Stack>
           </Flex>
 
           <List>
             {props.bulletPoints.map((ele, i) => (
               <List.Item key={i}>
-                <Text>{ele}</Text>
+                <Text fz={20}>{ele}</Text>
               </List.Item>
             ))}
           </List>

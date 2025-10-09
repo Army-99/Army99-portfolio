@@ -1,4 +1,4 @@
-import { Box, Space, Stack, Title } from "@mantine/core";
+import { Stack } from "@mantine/core";
 import { useEffect, useRef } from "react";
 import JobSection, { JobSectionProps } from "../components/JobSection";
 import { useScrollStore } from "../store/scrollStore";
@@ -12,7 +12,7 @@ const jobs: JobSectionProps[] = [
       "Adopted Entity Framework and Docker for scalability, showcasing full-stack expertise.",
       "Collaborated in modernizing legacy Java applications and MVC frameworks, achieving a notable speed increase.",
     ],
-    dateStart: "20/02/2023",
+    dateStart: "2023",
   },
   {
     title: "Software Engineer",
@@ -22,8 +22,8 @@ const jobs: JobSectionProps[] = [
       "Created and optimized over 25 applications in QlikView and Qlik Sense, streamlining data analysis and delivery processes.",
       "Introduced Python-based data scraping applications and automation, accelerating sales control processes. ",
     ],
-    dateStart: "01/05/2021",
-    dateEnd: "19/02/2023",
+    dateStart: "2021",
+    dateEnd: "2023",
   },
   {
     title: "Technical ICT",
@@ -33,8 +33,8 @@ const jobs: JobSectionProps[] = [
       "Upgraded security measures, including robust protocols and regular vulnerability assessments, ",
       "Implemented user-friendly interfaces",
     ],
-    dateStart: "11/11/2021",
-    dateEnd: "30/04/2021",
+    dateStart: "2019",
+    dateEnd: "2021",
   },
 ];
 
@@ -47,24 +47,15 @@ export default function Experience() {
   }, [registerSection]);
 
   return (
-    <Stack h={"70vh"} justify="center" ref={ref}>
-      <Stack p={20} align="center">
-        <Space h={50} />
-
-        <Title size={60} className="whiteText" order={3} ta={"center"}>
-          EXPERIENCE
-        </Title>
-
-        <Box>
-          <Stack gap={50}>
-            {jobs.map((job, i) => (
-              <Box miw={1000}>
-                <JobSection key={i} {...job} />
-              </Box>
-            ))}
-          </Stack>
-        </Box>
+    <>
+      <div ref={ref} />
+      <Stack mt={"10vh"} mb={50} justify="center">
+        <Stack gap={50}>
+          {jobs.map((job, i) => (
+            <JobSection key={i} {...job} />
+          ))}
+        </Stack>
       </Stack>
-    </Stack>
+    </>
   );
 }
