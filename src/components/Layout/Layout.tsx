@@ -29,7 +29,7 @@ export function Layout(props: LayoutProps) {
         <Flex justify={"flex-end"} p={10}>
           <CustomHeaderLink label="Who Am I" valueToScroll="whoami" />
           <CustomHeaderLink label="Experience" valueToScroll="experience" />
-          <CustomHeaderLink label="Projects" valueToScroll="projects" />
+          <CustomHeaderLink label="What Can I do" valueToScroll="projects" />
           <CustomHeaderLink label="Contact Me" valueToScroll="contact" onClick={() => setShowModal(true)} />
         </Flex>
       </AppShell.Header>

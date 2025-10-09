@@ -16,7 +16,7 @@ export default function WhoAmI() {
   }, [registerSection]);
 
   return (
-    <Stack h={"70vh"} justify="center" ref={ref}>
+    <Stack h={"50vh"} justify="center" ref={ref} mb={"10vh"}>
       <Center mt={30}>
         <Group p={5} gap={"lg"} align="center" justify="center" wrap="nowrap">
           <Specializes />

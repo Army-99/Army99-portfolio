@@ -21,7 +21,7 @@ function CustomHeaderLink({ label, valueToScroll, hide, onClick }: Readonly<Cust
 
   return (
     <NavLink
-      maw={125}
+      maw={150}
       className={styles.link}
       variant="light"
       component="a"

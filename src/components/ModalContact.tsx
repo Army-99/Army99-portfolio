@@ -1,7 +1,10 @@
-import { Group, Stack, TextInput, Textarea } from "@mantine/core";
+import { Group, Stack } from "@mantine/core";
+import { IconSend } from "@tabler/icons-react";
 import emailjs from "emailjs-com";
 import { useState } from "react";
 import CustomModal from "./CustomModal";
+import CustomTextArea from "./CustomTextArea";
+import CustomTextInput from "./CustomTextInput";
 import PrimaryButton from "./PrimaryButton";
 
 const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -48,46 +51,43 @@ export default function ContactModal({ onClose }: { onClose: () => void }) {
 
   return (
     <CustomModal onClose={onClose} title="Contact Me" size={"lg"}>
-      <Stack>
-        <TextInput
+      <Stack p={20}>
+        <CustomTextInput
           label="Name"
           name="name"
           placeholder="Your name"
           value={form.name}
           onChange={handleChange}
-          required
           mb="sm"
         />
-        <TextInput
+        <CustomTextInput
           label="Email"
           name="email"
-          placeholder="you@example.com"
+          placeholder="email@gmail.com"
           value={form.email}
           onChange={handleChange}
-          required
           mb="sm"
         />
-        <TextInput
+        <CustomTextInput
           label="Phone"
           name="phone"
           placeholder="Your phone number"
           value={form.phone}
           onChange={handleChange}
-          required
         />
 
-        <Textarea
+        <CustomTextArea
           label="Message"
           name="message"
           placeholder="Tell me about your project..."
           value={form.message}
           onChange={handleChange}
-          required
           minRows={4}
+          autosize
         />
 
         <Group justify="flex-end" mt="md">
-          <PrimaryButton loading={loading} onClick={sendEmail}>
+          <PrimaryButton leftSection={<IconSend size={20} />} loading={loading} onClick={sendEmail}>
             Send message
           </PrimaryButton>
         </Group>

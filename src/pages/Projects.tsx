@@ -82,7 +82,7 @@ export default function Projects() {
   }, [registerSection]);
 
   return (
-    <Stack align="center" ref={ref} className="whiteText">
+    <Stack align="center" ref={ref} className="whiteText" mt={"10vh"} mb={"10vh"}>
       <Grid gutter={"xl"} grow>
         <Grid.Col span={6}>
           <BoxProject

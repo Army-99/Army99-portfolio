@@ -1,4 +1,4 @@
-import { Modal, ModalBaseProps, Title, useMantineTheme } from "@mantine/core";
+import { Modal, ModalBaseProps, Title } from "@mantine/core";
 import styles from "./CustomModal.module.scss"; // Assuming you have a CSS module for styles
 
 type Props = {
@@ -9,28 +9,14 @@ type Props = {
 };
 
 export default function CustomModal({ onClose, children, title, size }: Props) {
-  const theme = useMantineTheme();
   return (
     <Modal
-      classNames={{
-        close: styles.closeButton,
-      }}
-      styles={{
-        header: {
-          backgroundColor: theme.colors.site[0],
-        },
-        body: {
-          backgroundColor: theme.colors.site[0],
-        },
-        close: {
-          color: theme.colors.site[1],
-        },
-      }}
+      classNames={styles}
       size={size}
       opened={true}
       onClose={onClose}
       title={
-        <Title c="site.2" order={2}>
+        <Title c="site.2" order={3}>
           {title}
         </Title>
       }

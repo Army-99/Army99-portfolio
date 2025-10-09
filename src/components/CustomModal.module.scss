@@ -1,11 +1,19 @@
-.closeButton {
-
-  color: var(--mantine-color-primary-0);
+.close {
+  color: var(--mantine-color-site-2);
   font-weight: 600;
   transition: background-color 150ms ease;
 
   &:hover {
-    background-color: var(--mantine-color-primary-6);
+    background-color: var(--mantine-color-site-1);
   }
-
 }
+
+.header {
+  background-color: var(--mantine-color-dark-8);
+  border-bottom: 1px solid var(--mantine-color-site-1);
+}
+
+.body {
+  background-color: var(--mantine-color-dark-8);
+}
+
