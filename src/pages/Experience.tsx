@@ -47,7 +47,7 @@ export default function Experience() {
   }, [registerSection]);
 
   return (
-    <Stack h={"100vh"} justify="center" ref={ref}>
+    <Stack h={"70vh"} justify="center" ref={ref}>
       <Stack p={20} align="center">
         <Space h={50} />
 

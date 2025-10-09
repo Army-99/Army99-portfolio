@@ -8,9 +8,10 @@ export type CustomLinkProps = {
   label: string;
   valueToScroll: string;
   hide?: boolean;
+  onClick?: () => void;
 };
 
-function CustomHeaderLink({ label, valueToScroll, hide }: Readonly<CustomLinkProps>) {
+function CustomHeaderLink({ label, valueToScroll, hide, onClick }: Readonly<CustomLinkProps>) {
   const location = useLocation();
   const scrollTo = useScrollStore((s) => s.scrollTo);
 
@@ -33,6 +34,7 @@ function CustomHeaderLink({ label, valueToScroll, hide }: Readonly<CustomLinkPro
       onClick={(event) => {
         event.preventDefault();
         scrollTo(valueToScroll);
+        onClick?.();
       }}
     />
   );

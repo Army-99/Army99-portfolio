@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import img from "../../assets/white-black-ca.jpg";
 import { useScrollStore } from "../../store/scrollStore";
 import PrimaryButton from "../PrimaryButton";
+import { useDisclosure } from "@mantine/hooks";
+import ContactModal from "../ModalContact";
 
 export default function WhoAmI() {
   const ref = useRef<HTMLDivElement>(null);
@@ -14,7 +16,7 @@ export default function WhoAmI() {
   }, [registerSection]);
 
   return (
-    <Stack h={"100vh"} justify="center" ref={ref}>
+    <Stack h={"70vh"} justify="center" ref={ref}>
       <Center mt={30}>
         <Group p={5} gap={"lg"} align="center" justify="center" wrap="nowrap">
           <Specializes />
@@ -26,30 +28,36 @@ export default function WhoAmI() {
 }
 
 function Specializes() {
-  return (
-    <Stack p={20}>
-      <Box
-        maw={700}
-        style={{
-          justifyContent: "center",
-        }}
-      >
-        <Text ta={"start"} className="whiteText" style={{ fontSize: 30 }}>
-          I’m a full-stack developer passionate about automation and Web3 technologies.
-        </Text>
-        <Text ta={"start"} className="whiteText" style={{ fontSize: 30, marginTop: 20 }}>
-          I help businesses streamline operations and bring their ideas to life through efficient, scalable solutions.
-        </Text>
-      </Box>
+  const [opened, { open, close }] = useDisclosure(false);
 
-      <Group justify="end" mt={20}>
-        <PrimaryButton size={"xl"}>
-          <Group>
-            <IconMessage size={30} />
-            Let’s work together
-          </Group>
-        </PrimaryButton>
-      </Group>
-    </Stack>
+  return (
+    <>
+      <Stack p={20}>
+        <Box
+          maw={700}
+          style={{
+            justifyContent: "center",
+          }}
+        >
+          <Text ta={"start"} className="whiteText" style={{ fontSize: 30 }}>
+            I’m a full-stack developer passionate about automation and Web3 technologies.
+          </Text>
+          <Text ta={"start"} className="whiteText" style={{ fontSize: 30, marginTop: 20 }}>
+            I help businesses streamline operations and bring their ideas to life through efficient, scalable solutions.
+          </Text>
+        </Box>
+
+        <Group justify="end" mt={20}>
+          <PrimaryButton size={"xl"} onClick={open}>
+            <Group>
+              <IconMessage size={30} />
+              Let’s work together
+            </Group>
+          </PrimaryButton>
+        </Group>
+      </Stack>
+
+      {opened && <ContactModal onClose={close} />}
+    </>
   );
 }
