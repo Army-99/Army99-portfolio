@@ -16,8 +16,8 @@ export default function WhoAmI() {
   }, [registerSection]);
 
   return (
-    <Stack h={"50vh"} justify="center" ref={ref} mb={"10vh"}>
-      <Center mt={30}>
+    <Stack h={"50vh"} justify="center" ref={ref} mb={"20vh"}>
+      <Center mt={"30vh"}>
         <Group p={5} gap={"lg"} align="center" justify="center" wrap="nowrap">
           <Specializes />
           <Image h={700} w={600} src={img} radius={"lg"} fit="cover" />
