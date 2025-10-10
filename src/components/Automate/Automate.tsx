@@ -11,35 +11,37 @@ export default function Automate() {
 
   return (
     <Stack justify="center" bg={"site.4"}>
-      <Title fz={isMobile ? 40 : 80} ta={"center"} fw={700} className="whiteText" mt={"15vh"}>
-        Automate your business
-      </Title>
-      <Title order={isMobile ? 4 : 2} ta={"center"} fw={700} className="whiteText">
-        Empowering companies through intelligent, data-driven systems.
-      </Title>
+      <Box ml={50} mr={50}>
+        <Title fz={isMobile ? 40 : 80} ta={"center"} fw={700} className="whiteText" mt={"15vh"}>
+          Automate your business
+        </Title>
+        <Title order={isMobile ? 4 : 2} ta={"center"} fw={700} className="whiteText">
+          Empowering companies through intelligent, data-driven systems.
+        </Title>
 
-      <Box p={20} mt={"10vh"}>
-        <Grid grow>
-          <Grid.Col span={isMobile ? 12 : 4}>
-            <SkillCard icon={<IconSettings className="whiteText" size={iconSize} />} title="AUTOMATION" />
-          </Grid.Col>
+        <Box p={20} mt={"10vh"}>
+          <Grid grow>
+            <Grid.Col span={isMobile ? 12 : 4}>
+              <SkillCard icon={<IconSettings className="whiteText" size={iconSize} />} title="AUTOMATION" />
+            </Grid.Col>
 
-          <Grid.Col span={isMobile ? 12 : 4}>
-            <SkillCard icon={<IconCoinBitcoin className="whiteText" size={iconSize} />} title="WEB3" />
-          </Grid.Col>
+            <Grid.Col span={isMobile ? 12 : 4}>
+              <SkillCard icon={<IconCoinBitcoin className="whiteText" size={iconSize} />} title="WEB3" />
+            </Grid.Col>
 
-          <Grid.Col span={isMobile ? 12 : 4}>
-            <SkillCard icon={<IconRobot className="whiteText" size={iconSize} />} title="AI" />
-          </Grid.Col>
+            <Grid.Col span={isMobile ? 12 : 4}>
+              <SkillCard icon={<IconRobot className="whiteText" size={iconSize} />} title="AI" />
+            </Grid.Col>
 
-          <Grid.Col span={isMobile ? 12 : 4}>
-            <SkillCard icon={<IconBolt className="whiteText" size={iconSize} />} title="VELOCITY" />
-          </Grid.Col>
+            <Grid.Col span={isMobile ? 12 : 4}>
+              <SkillCard icon={<IconBolt className="whiteText" size={iconSize} />} title="VELOCITY" />
+            </Grid.Col>
 
-          <Grid.Col span={isMobile ? 12 : 4}>
-            <SkillCard icon={<IconSeeding className="whiteText" size={iconSize} />} title="GROWTH" />
-          </Grid.Col>
-        </Grid>
+            <Grid.Col span={isMobile ? 12 : 4}>
+              <SkillCard icon={<IconSeeding className="whiteText" size={iconSize} />} title="GROWTH" />
+            </Grid.Col>
+          </Grid>
+        </Box>
       </Box>
     </Stack>
   );
