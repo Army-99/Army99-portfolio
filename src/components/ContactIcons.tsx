@@ -1,8 +1,8 @@
-import { Flex, ActionIcon, rem, Text, Anchor } from "@mantine/core";
-import { IconMail, IconPhone, IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
-import styles from "./Buttons.module.scss";
-import { motion } from "framer-motion";
+import { ActionIcon, Anchor, Flex, rem, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import { IconBrandGithub, IconBrandLinkedin, IconMail, IconPhone } from "@tabler/icons-react";
+import CustomAnimationButton from "./Animations/CustomAnimationButton";
+import styles from "./Buttons.module.scss";
 
 type Props = {
   withText?: boolean;
@@ -45,23 +45,16 @@ export default function ContactIcons({ withText }: Props) {
   );
 }
 
-const MotionDiv = motion.div;
-
 function ContactIcon({ link, icon, text }: { link?: string; icon?: JSX.Element; text?: string }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <Flex align={"center"} gap={"lg"}>
-      <MotionDiv
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ type: "spring", stiffness: 250, damping: 15 }}
-        style={{ display: "inline-block" }}
-      >
+      <CustomAnimationButton>
         <ActionIcon size={50} onClick={() => window.open(link)} className={text ? styles.primary : styles.transparent}>
           {icon}
         </ActionIcon>
-      </MotionDiv>
+      </CustomAnimationButton>
       <Anchor href={link} target="_blank" underline={"never"}>
         {text && (
           <Text fz={isMobile ? 12 : 16} c={"site.0"}>

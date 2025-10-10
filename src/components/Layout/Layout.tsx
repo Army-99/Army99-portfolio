@@ -37,8 +37,8 @@ export function Layout(props: LayoutProps) {
       <AppShell.Header
         style={{ backgroundColor: theme.colors.site[0], borderBottom: `1px solid rgba(255, 255, 255, 0.2)` }}
       >
-        <Group justify="space-between" p={5} ml={10} mr={10}>
-          <Stack justify="center" hiddenFrom="sm" h={"100%"}>
+        <Group justify="space-between" p={5} ml={10} mr={10} hiddenFrom="sm">
+          <Stack justify="center" h={"100%"}>
             <Burger opened={openedMobileNavbar} onClick={toggle} size="lg" color={"site.2"} />
           </Stack>
           <Logo size={50} />

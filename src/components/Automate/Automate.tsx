@@ -1,8 +1,9 @@
 import { Box, Center, Grid, Stack, Title } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconBolt, IconCoinBitcoin, IconRobot, IconSeeding, IconSettings } from "@tabler/icons-react";
-import { motion } from "framer-motion";
 import { ReactNode, useMemo } from "react";
+import CustomAnimationButton from "../Animations/CustomAnimationButton";
+import CustomAnimationShow from "../Animations/CustomAnimationShow";
 
 export default function Automate() {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -47,29 +48,18 @@ export default function Automate() {
   );
 }
 
-const MotionDiv = motion.div;
-
 function SkillCard({ icon, title }: { icon: ReactNode; title: string }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
-    <MotionDiv
-      whileHover={{ scale: 1.1 }}
-      transition={{ type: "spring" }}
-      style={{ display: "inline-block", width: "100%" }}
-    >
-      <MotionDiv
-        initial={{ opacity: 0, y: 50 }} // stato iniziale
-        whileInView={{ opacity: 1, y: 0 }} // stato finale
-        transition={{ duration: 1, ease: "easeOut" }} // durata e tipo di animazione
-        style={{ minWidth: isMobile ? undefined : 400, height: 150 }}
-      >
+    <CustomAnimationButton>
+      <CustomAnimationShow style={{ minWidth: isMobile ? undefined : 400, height: 150 }}>
         <Center>
           {icon}
           <Title order={isMobile ? 3 : 2} ta={"center"} className="whiteText">
             {title}
           </Title>
         </Center>
-      </MotionDiv>
-    </MotionDiv>
+      </CustomAnimationShow>
+    </CustomAnimationButton>
   );
 }

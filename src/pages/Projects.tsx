@@ -12,69 +12,8 @@ import {
   IconTrendingUp,
 } from "@tabler/icons-react";
 import { useEffect, useRef } from "react";
+import CustomAnimationShow from "../components/Animations/CustomAnimationShow";
 import { useScrollStore } from "../store/scrollStore";
-import { motion } from "framer-motion";
-
-// const projects: ProjectProps[] = [
-//   {
-//     title: "Web3 Fantasy Football Platform",
-//     bulletPoints: [
-//       "Developed a decentralized fantasy football application where users can join leagues, manage teams, and compete for prizes.",
-//       "Implemented smart contracts with Hardhat to securely handle entry fees and automatically distribute rewards to winners.",
-//       "Designed an on-chain auction system for player transfers, ensuring transparent and verifiable transactions.",
-//       "Integrated Web3 Authentication for wallet-based login and secure access control.",
-//       "Used Prisma with MongoDB for efficient data management and scalability.",
-//       "Implemented real-time updates during matches and auctions using Pusher.io.",
-//       "Leveraged Zustand for performant state management and smooth user experience.",
-//     ],
-//     img: img2,
-//   },
-//   {
-//     title: "Personal Investment Dashboard",
-//     bulletPoints: [
-//       "Built a full-stack platform for portfolio and asset management with real-time profit tracking.",
-//       "Implemented analytics to monitor market trends and suggest optimal buy/sell timing based on user-defined rules.",
-//       "Created interactive charts to visualize asset performance and diversification.",
-//       "Integrated .NET APIs for high-frequency data handling and seamless updates.",
-//       "Designed a clean, responsive UI to simplify investment tracking and decision-making.",
-//       "Added modules for transaction history, profit reports, and asset categorization.",
-//     ],
-//     img: img1,
-//   },
-//   {
-//     title: "Electronic Invoicing Management System",
-//     bulletPoints: [
-//       "Developed an end-to-end software for electronic invoice creation, validation, and transmission to the San Marino tax authorities.",
-//       "Implemented company and client management with secure data storage and access control.",
-//       "Automated XML generation and signature processes for compliant e-invoicing.",
-//       "Integrated audit logging and status tracking for complete workflow transparency.",
-//       "Designed an intuitive interface for accountants and small business owners.",
-//     ],
-//     // img: img3, // aggiungi qui un'immagine per il progetto fatturazione
-//   },
-//   {
-//     title: "E-commerce Scraping & Analytics Tool",
-//     bulletPoints: [
-//       "Developed a web scraping system to collect and monitor product data across multiple e-commerce platforms.",
-//       "Stored and structured data in MongoDB for efficient querying and analysis.",
-//       "Built dynamic dashboards to visualize trends, price variations, and competitor performance.",
-//       "Added alert systems for price changes, new listings, and market anomalies.",
-//     ],
-//     // img: img4, // immagine per lo scraper
-//   },
-//   {
-//     title: "Delivery Note Analysis & Automation System",
-//     bulletPoints: [
-//       "Intelligent system to process and analyze delivery notes and quotes using OCR and AI.",
-//       "Automating data extraction from PDF and scanned documents for integration into internal management systems.",
-//       "Designing logic to classify, validate, and reconcile data across suppliers and departments.",
-//       "Building a dashboard to review extracted information and generate structured reports.",
-//     ],
-//     // img: img5, // immagine per il progetto OCR
-//   },
-// ];
-
-const MotionDiv = motion.div;
 
 export default function Projects() {
   const ref = useRef<HTMLDivElement>(null);
@@ -86,59 +25,16 @@ export default function Projects() {
 
   return (
     <Stack align="center" ref={ref} className="whiteText" mt={"10vh"} mb={"10vh"}>
-      <MotionDiv
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeIn", delay: 0.5 }}
-      >
-        <SimpleGrid cols={4} visibleFrom="sm">
-          <BoxProjects />
-        </SimpleGrid>
+      <SimpleGrid cols={4} visibleFrom="sm">
+        <BoxProjects />
+      </SimpleGrid>
 
-        <Stack gap={50} hiddenFrom="sm">
-          <BoxProjects />
-        </Stack>
-
-        {/* <Stack gap={50}>
-        {projects.map((job, i) => (
-          <Project key={i} {...job} position={i % 2 === 0 ? "left" : "right"} />
-        ))}
-      </Stack> */}
-      </MotionDiv>
+      <Stack gap={50} hiddenFrom="sm">
+        <BoxProjects />
+      </Stack>
     </Stack>
   );
 }
-
-// type ProjectProps = {
-//   title: string;
-//   bulletPoints: string[];
-//   img?: string;
-//   position?: "left" | "right";
-// };
-
-// function Project({ title, bulletPoints, img, position = "right" }: ProjectProps) {
-//   return (
-//     <>
-//       <Group>
-//         {position === "left" && <Image src={img} maw={800} h={"100%"} />}
-//         <Stack className="whiteText" align="center">
-//           <Title ta={"center"} order={3}>
-//             {title}
-//           </Title>
-
-//           <List>
-//             {bulletPoints.map((ele, i) => (
-//               <List.Item key={i}>
-//                 <Text>{ele}</Text>
-//               </List.Item>
-//             ))}
-//           </List>
-//         </Stack>
-//         {position === "right" && <Image src={img} maw={800} h={"100%"} />}
-//       </Group>
-//     </>
-//   );
-// }
 
 function BoxProjects() {
   return (
@@ -186,20 +82,22 @@ function BoxProjects() {
 
 function BoxProject({ title, activities }: { title: string; activities: IconActivityProps[]; link?: string }) {
   return (
-    <Box p={20}>
-      <Stack>
-        <Title ta={"center"} fz={45} className="whiteText" mb={20} mih={120}>
-          {title}
-        </Title>
-      </Stack>
+    <CustomAnimationShow>
+      <Box p={20}>
+        <Stack>
+          <Title ta={"center"} fz={45} className="whiteText" mb={20} mih={120}>
+            {title}
+          </Title>
+        </Stack>
 
-      <Stack mt={40}>
-        {activities.map((activity, index) => (
-          <IconActivity key={index} {...activity} />
-        ))}
-      </Stack>
-      {/* <Center>{link && <PrimaryButton onClick={() => window.open(link, "_blank")}>View Project</PrimaryButton>}</Center> */}
-    </Box>
+        <Stack mt={40}>
+          {activities.map((activity, index) => (
+            <IconActivity key={index} {...activity} />
+          ))}
+        </Stack>
+        {/* <Center>{link && <PrimaryButton onClick={() => window.open(link, "_blank")}>View Project</PrimaryButton>}</Center> */}
+      </Box>
+    </CustomAnimationShow>
   );
 }
 

@@ -1,13 +1,13 @@
 import { Box, Center, Group, Image, Stack, Text, Title } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { IconMessage } from "@tabler/icons-react";
 import { useEffect, useRef, useState } from "react";
 import img from "../../assets/white-black-ca.jpg";
 import { useScrollStore } from "../../store/scrollStore";
 import ContactSection from "../ContactSection";
-import PrimaryButton from "../PrimaryButton";
+import CustomAnimationShow from "../Animations/CustomAnimationShow";
 import CustomTooltip from "../CustomTooltip";
-import { motion } from "framer-motion";
-import { useMediaQuery } from "@mantine/hooks";
+import PrimaryButton from "../PrimaryButton";
 
 export default function WhoAmI() {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,18 +21,16 @@ export default function WhoAmI() {
   return (
     <Stack className="gradient" justify="center" ref={ref}>
       <Center hiddenFrom="sm">
-        <Image h={500} w={300} src={img} radius={"lg"} fit="cover" />
+        <CustomAnimationShow>
+          <Image h={500} w={300} src={img} radius={"lg"} fit="cover" />
+        </CustomAnimationShow>
       </Center>
       <Center mt={isMobile ? "0" : "20vh"} mb={"10vh"}>
         <Group p={5} gap={"lg"} align="center" justify="center" wrap="nowrap">
           <Specializes />
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1.5, ease: "linear" }}
-          >
+          <CustomAnimationShow>
             <Image visibleFrom="sm" h={700} w={600} src={img} radius={"lg"} fit="cover" />
-          </motion.div>
+          </CustomAnimationShow>
         </Group>
       </Center>
     </Stack>
@@ -68,15 +66,15 @@ function Specializes() {
 
       <Group justify="center" mt={20}>
         <CustomTooltip label={<ContactSection />} opened={opened}>
-          <PrimaryButton
-            leftSection={<IconMessage size={isMobile ? 30 : 40} />}
-            mih={75}
-            onClick={() => setOpened(!opened)}
-          >
-            <Group>
+          <Box>
+            <PrimaryButton
+              leftSection={<IconMessage size={isMobile ? 30 : 40} />}
+              mih={75}
+              onClick={() => setOpened(!opened)}
+            >
               <Title order={isMobile ? 4 : 3}>Let's work together!</Title>
-            </Group>
-          </PrimaryButton>
+            </PrimaryButton>
+          </Box>
         </CustomTooltip>
       </Group>
     </Stack>
