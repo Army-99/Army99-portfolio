@@ -39,7 +39,7 @@ export default function VantaHalo({ children }: Props) {
   // }, []);
 
   return (
-    <div ref={vantaRef} style={{ maxWidth: "100vw", height: "calc(90vh - 60px)" }}>
+    <div ref={vantaRef} style={{ maxWidth: "100vw", height: "calc(100vh - 120px)" }}>
       <Center h={"100%"}>{children}</Center>
     </div>
   );
