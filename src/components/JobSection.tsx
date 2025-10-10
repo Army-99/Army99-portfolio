@@ -28,7 +28,7 @@ export default function JobSection(props: JobSectionProps) {
 
       <Grid.Col span={isMobile ? 12 : 9}>
         <Stack gap={"lg"}>
-          <Flex mb={10} justify={"center"}>
+          <Flex mb={10} justify={isMobile ? "center" : "flex-start"}>
             <Stack>
               <Title ta={isMobile ? "center" : "start"} fz={40}>
                 {props.title}

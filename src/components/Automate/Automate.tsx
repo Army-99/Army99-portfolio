@@ -12,7 +12,7 @@ export default function Automate() {
 
   return (
     <Stack justify="center" bg={"site.4"}>
-      <Box ml={50} mr={50}>
+      <Box ml={"5vh"} mr={"5vh"}>
         <Title fz={isMobile ? 40 : 80} ta={"center"} fw={700} className="whiteText" mt={"15vh"}>
           Automate your business
         </Title>

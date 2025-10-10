@@ -9,8 +9,8 @@ export default function HeroSection() {
   return (
     <Stack gap={0}>
       <VantaBackground>
-        <Stack justify={isMobile ? "start" : "end"} h={"90%"} pt={10} w={"100%"} ml={10} mr={15}>
-          <Stack className="whiteText" justify="center" gap={50}>
+        <Stack justify={isMobile ? "start" : "end"} h={"100%"} w={"100%"} ml={10} mr={15}>
+          <Stack className="whiteText" justify="center" gap={50} mt={10}>
             <CustomAnimationShow delay={1} style={{ marginBottom: "-5vh" }}>
               <Title order={isMobile ? 4 : 2} ta={"start"} className="whiteText">
                 Full Stack Developer
@@ -18,7 +18,7 @@ export default function HeroSection() {
             </CustomAnimationShow>
 
             <CustomAnimationShow>
-              <Title fz={isMobile ? 40 : undefined} order={isMobile ? undefined : 1} ta={isMobile ? "end" : "center"}>
+              <Title fz={isMobile ? 50 : undefined} order={isMobile ? undefined : 1} ta={isMobile ? "end" : "center"}>
                 Christian {isMobile && <br />}Armato
               </Title>
             </CustomAnimationShow>
