@@ -35,7 +35,7 @@ const CustomHeaderLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(function
         variant="light"
         component="a"
         label={
-          <Text ta={"center"} fw={700}>
+          <Text ta={"center"} fw={700} fz={18}>
             {label}
           </Text>
         }

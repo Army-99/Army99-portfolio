@@ -2,6 +2,7 @@ import { Flex, ActionIcon, rem, Text, Anchor } from "@mantine/core";
 import { IconMail, IconPhone, IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import styles from "./Buttons.module.scss";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "@mantine/hooks";
 
 type Props = {
   withText?: boolean;
@@ -47,6 +48,8 @@ export default function ContactIcons({ withText }: Props) {
 const MotionDiv = motion.div;
 
 function ContactIcon({ link, icon, text }: { link?: string; icon?: JSX.Element; text?: string }) {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <Flex align={"center"} gap={"lg"}>
       <MotionDiv
@@ -61,7 +64,7 @@ function ContactIcon({ link, icon, text }: { link?: string; icon?: JSX.Element; 
       </MotionDiv>
       <Anchor href={link} target="_blank" underline={"never"}>
         {text && (
-          <Text fz={16} c={"site.0"}>
+          <Text fz={isMobile ? 12 : 16} c={"site.0"}>
             {text}
           </Text>
         )}

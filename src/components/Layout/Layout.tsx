@@ -1,9 +1,10 @@
 import { AppShell, Burger, Flex, Stack, useMantineTheme } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
+import useLayoutStore from "../../store/layout.store";
 import ContactSection from "../ContactSection";
 import CustomTooltip from "../CustomTooltip";
 import CustomHeaderLink from "./CustomHeaderLink";
+import CustomNavbar from "./CustomNavbar";
 import { FooterSocial } from "./Footer";
 
 type LayoutProps = {
@@ -15,7 +16,8 @@ export function Layout(props: LayoutProps) {
   // const [cookiesBanner, setCookiesBanner] = useState<CustomModalProps>();
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
-  const [openedMobileNavbar, { toggle }] = useDisclosure();
+  const openedMobileNavbar = useLayoutStore((s) => s.isMobileMenuOpen);
+  const toggle = useLayoutStore((s) => s.toggleMobileMenu);
 
   return (
     <AppShell
@@ -25,12 +27,17 @@ export function Layout(props: LayoutProps) {
       footer={{
         height: 90,
       }}
+      navbar={{
+        width: 100,
+        breakpoint: "sm",
+        collapsed: { mobile: !openedMobileNavbar, desktop: true },
+      }}
     >
       <AppShell.Header
         style={{ backgroundColor: theme.colors.site[0], borderBottom: `1px solid rgba(255, 255, 255, 0.2)` }}
       >
-        <Stack justify="center" ml={20} hiddenFrom="sm">
-          <Burger opened={openedMobileNavbar} onClick={toggle} size="xl" color={"site.2"} />
+        <Stack justify="center" pl={10} hiddenFrom="sm" h={"100%"}>
+          <Burger opened={openedMobileNavbar} onClick={toggle} size="lg" color={"site.2"} />
         </Stack>
 
         <Flex justify={"space-around"} p={10} visibleFrom="sm">
@@ -42,6 +49,11 @@ export function Layout(props: LayoutProps) {
           </CustomTooltip>
         </Flex>
       </AppShell.Header>
+
+      <AppShell.Navbar hiddenFrom="sm" bg={"site.3"}>
+        <CustomNavbar />
+      </AppShell.Navbar>
+
       <AppShell.Main style={{ backgroundColor: theme.colors.site[0] }}>{props.children}</AppShell.Main>
       <AppShell.Footer
         style={{ backgroundColor: theme.colors.site[0], borderTop: `1px solid rgba(255, 255, 255, 0.2)` }}

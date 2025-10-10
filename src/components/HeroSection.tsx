@@ -29,7 +29,7 @@ export default function HeroSection() {
               whileInView={{ opacity: 1 }} // stato finale
               transition={{ duration: 1, ease: "easeOut" }} // durata e tipo di animazione
             >
-              <Title order={isMobile ? 2 : 1} ta={"center"}>
+              <Title fz={isMobile ? 40 : undefined} order={isMobile ? undefined : 1} ta={"center"}>
                 Christian Armato
               </Title>
             </Motion>
