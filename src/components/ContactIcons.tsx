@@ -61,7 +61,7 @@ function ContactIcon({ link, icon, text }: { link?: string; icon?: JSX.Element; 
       </MotionDiv>
       <Anchor href={link} target="_blank" underline={"never"}>
         {text && (
-          <Text c={"site.0"} fz={16}>
+          <Text fz={16} c={"site.0"}>
             {text}
           </Text>
         )}

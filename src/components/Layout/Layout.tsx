@@ -1,4 +1,5 @@
-import { AppShell, Flex, useMantineTheme } from "@mantine/core";
+import { AppShell, Burger, Flex, Stack, useMantineTheme } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import ContactSection from "../ContactSection";
 import CustomTooltip from "../CustomTooltip";
@@ -14,6 +15,7 @@ export function Layout(props: LayoutProps) {
   // const [cookiesBanner, setCookiesBanner] = useState<CustomModalProps>();
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
+  const [openedMobileNavbar, { toggle }] = useDisclosure();
 
   return (
     <AppShell
@@ -27,7 +29,11 @@ export function Layout(props: LayoutProps) {
       <AppShell.Header
         style={{ backgroundColor: theme.colors.site[0], borderBottom: `1px solid rgba(255, 255, 255, 0.2)` }}
       >
-        <Flex justify={"space-around"} p={10}>
+        <Stack justify="center" ml={20} hiddenFrom="sm">
+          <Burger opened={openedMobileNavbar} onClick={toggle} size="xl" color={"site.2"} />
+        </Stack>
+
+        <Flex justify={"space-around"} p={10} visibleFrom="sm">
           <CustomHeaderLink label="Who Am I" valueToScroll="whoami" />
           <CustomHeaderLink label="Experience" valueToScroll="experience" />
           <CustomHeaderLink label="Projects" valueToScroll="projects" />

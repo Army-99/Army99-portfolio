@@ -9,6 +9,13 @@ import Home from "./pages/Home.tsx";
 
 export const theme = createTheme({
   fontFamily: "'Special Elite', monospace",
+  fontSizes: {
+    xs: "10px",
+    sm: "12px",
+    md: "14px",
+    lg: "16px",
+    xl: "20px",
+  },
   colors: {
     site: [
       "#0a001b",
@@ -24,12 +31,11 @@ export const theme = createTheme({
     ],
   },
   headings: {
-    //fontFamily: "PT_Sans variant0, Tofu",
     sizes: {
-      h1: { fontSize: "75px" },
-      h2: { fontSize: "50px" },
-      h3: { fontSize: "25px" },
-      h4: { fontSize: "17px" },
+      h1: { fontSize: "200px" },
+      h2: { fontSize: "60px" },
+      h3: { fontSize: "30px" },
+      h4: { fontSize: "20px" },
       h5: { fontSize: "10px" },
     },
   },
