@@ -2,6 +2,7 @@ import { Anchor, Flex, rem, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconBrandGithub, IconBrandLinkedin, IconMail, IconPhone } from "@tabler/icons-react";
 import PrimaryButton from "./PrimaryButton";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   withText?: boolean;
@@ -49,14 +50,22 @@ export default function ContactIcons({ withText }: Props) {
 
 function ContactIcon({ link, icon, text }: { link?: string; icon?: JSX.Element; text?: string }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const navigate = useNavigate();
+
+  function onClick() {
+    if (link?.startsWith("http")) {
+      window.open(link, "_blank", "noopener noreferrer");
+    } else if (link?.startsWith("mailto:") || link?.startsWith("tel:")) {
+      window.location.href = link;
+    } else {
+      navigate(link || "/");
+    }
+  }
 
   return (
     <Flex align={"center"} gap={"lg"}>
       <PrimaryButton
-        component="a"
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
+        onClick={onClick}
         mih={isMobile ? 34 : 50}
         miw={isMobile ? 34 : undefined}
         p={isMobile ? 4 : undefined}
