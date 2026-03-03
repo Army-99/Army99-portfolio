@@ -9,22 +9,22 @@ export default function HeroSection() {
   return (
     <Stack gap={0}>
       <VantaBackground>
-        <Stack justify={isMobile ? "start" : "end"} h={"100%"} w={"100%"} ml={10} mr={15}>
+        <Stack justify={isMobile ? "start" : "end"} h={"100%"} w={"100%"} ml={10} mr={15} mb={20}>
           <Stack className="whiteText" justify="center" gap={50} mt={10}>
-            <CustomAnimationShow delay={1} style={{ marginBottom: "-5vh" }}>
+            <CustomAnimationShow delay={0.15} direction="down" style={{ marginBottom: "-5vh" }}>
               <Title order={isMobile ? 4 : 2} ta={"start"} className="whiteText">
                 Full Stack Developer
               </Title>
             </CustomAnimationShow>
 
-            <CustomAnimationShow>
+            <CustomAnimationShow delay={0.35}>
               <Title fz={isMobile ? 50 : undefined} order={isMobile ? undefined : 1} ta={isMobile ? "end" : "center"}>
                 Christian {isMobile && <br />}Armato
               </Title>
             </CustomAnimationShow>
 
             <Box visibleFrom="sm">
-              <CustomAnimationShow delay={1} style={{ marginTop: "-5vh" }}>
+              <CustomAnimationShow delay={0.55} style={{ marginTop: "-5vh" }}>
                 <Title ta={"end"} order={isMobile ? 4 : 3} className="whiteText">
                   Building scalable web apps with precision and creativity.
                 </Title>

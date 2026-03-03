@@ -1,5 +1,6 @@
 import { AppShell, Burger, Flex, Group, Stack, useMantineTheme } from "@mantine/core";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import useLayoutStore from "../../store/layout.store";
 import ContactSection from "../ContactSection";
 import CustomTooltip from "../CustomTooltip";
@@ -44,14 +45,20 @@ export function Layout(props: LayoutProps) {
           <Logo size={50} />
         </Group>
 
-        <Flex justify={"space-around"} p={10} visibleFrom="sm">
-          <CustomHeaderLink label="Who Am I" valueToScroll="whoami" />
-          <CustomHeaderLink label="Experience" valueToScroll="experience" />
-          <CustomHeaderLink label="Projects" valueToScroll="projects" />
-          <CustomTooltip label={<ContactSection />} opened={opened} position="bottom-end">
-            <CustomHeaderLink label="Contact Me" onClick={() => setOpened(!opened)} />
-          </CustomTooltip>
-        </Flex>
+        <motion.div
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <Flex justify={"space-around"} p={10} visibleFrom="sm">
+            <CustomHeaderLink label="Who Am I" valueToScroll="whoami" />
+            <CustomHeaderLink label="Experience" valueToScroll="experience" />
+            <CustomHeaderLink label="Projects" valueToScroll="projects" />
+            <CustomTooltip label={<ContactSection />} opened={opened} position="bottom-end">
+              <CustomHeaderLink label="Contact Me" onClick={() => setOpened(!opened)} />
+            </CustomTooltip>
+          </Flex>
+        </motion.div>
       </AppShell.Header>
 
       <AppShell.Navbar hiddenFrom="sm" bg={"site.3"}>

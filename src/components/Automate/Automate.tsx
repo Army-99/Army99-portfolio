@@ -13,33 +13,37 @@ export default function Automate() {
   return (
     <Stack justify="center" bg={"site.4"}>
       <Box ml={"5vh"} mr={"5vh"}>
-        <Title fz={isMobile ? 40 : 80} ta={"center"} fw={700} className="whiteText" mt={"15vh"}>
-          Automate your business
-        </Title>
-        <Title order={isMobile ? 4 : 2} ta={"center"} fw={700} className="whiteText">
-          Empowering companies through intelligent, data-driven systems.
-        </Title>
+        <CustomAnimationShow direction="down">
+          <Title fz={isMobile ? 40 : 80} ta={"center"} fw={700} className="whiteText" mt={"15vh"}>
+            Automate your business
+          </Title>
+        </CustomAnimationShow>
+        <CustomAnimationShow delay={0.15}>
+          <Title order={isMobile ? 4 : 2} ta={"center"} fw={700} className="whiteText">
+            Empowering companies through intelligent, data-driven systems.
+          </Title>
+        </CustomAnimationShow>
 
         <Box p={20} mt={"10vh"}>
           <Grid grow>
             <Grid.Col span={isMobile ? 12 : 4}>
-              <SkillCard icon={<IconSettings className="whiteText" size={iconSize} />} title="AUTOMATION" />
+              <SkillCard icon={<IconSettings className="whiteText" size={iconSize} />} title="AUTOMATION" index={0} />
             </Grid.Col>
 
             <Grid.Col span={isMobile ? 12 : 4}>
-              <SkillCard icon={<IconCoinBitcoin className="whiteText" size={iconSize} />} title="WEB3" />
+              <SkillCard icon={<IconCoinBitcoin className="whiteText" size={iconSize} />} title="WEB3" index={1} />
             </Grid.Col>
 
             <Grid.Col span={isMobile ? 12 : 4}>
-              <SkillCard icon={<IconRobot className="whiteText" size={iconSize} />} title="AI" />
+              <SkillCard icon={<IconRobot className="whiteText" size={iconSize} />} title="AI" index={2} />
             </Grid.Col>
 
             <Grid.Col span={isMobile ? 12 : 4}>
-              <SkillCard icon={<IconBolt className="whiteText" size={iconSize} />} title="VELOCITY" />
+              <SkillCard icon={<IconBolt className="whiteText" size={iconSize} />} title="VELOCITY" index={3} />
             </Grid.Col>
 
             <Grid.Col span={isMobile ? 12 : 4}>
-              <SkillCard icon={<IconSeeding className="whiteText" size={iconSize} />} title="GROWTH" />
+              <SkillCard icon={<IconSeeding className="whiteText" size={iconSize} />} title="GROWTH" index={4} />
             </Grid.Col>
           </Grid>
         </Box>
@@ -48,11 +52,11 @@ export default function Automate() {
   );
 }
 
-function SkillCard({ icon, title }: { icon: ReactNode; title: string }) {
+function SkillCard({ icon, title, index }: { icon: ReactNode; title: string; index: number }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <CustomAnimationButton>
-      <CustomAnimationShow style={{ minWidth: isMobile ? undefined : 400, height: 150 }}>
+      <CustomAnimationShow delay={index * 0.08} style={{ minWidth: isMobile ? undefined : 400, height: 150 }}>
         <Center>
           {icon}
           <Title order={isMobile ? 3 : 2} ta={"center"} className="whiteText">

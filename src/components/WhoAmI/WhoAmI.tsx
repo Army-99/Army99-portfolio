@@ -27,8 +27,10 @@ export default function WhoAmI() {
       </Center>
       <Center mt={isMobile ? "0" : "20vh"} mb={"10vh"}>
         <Group p={5} gap={"lg"} align="center" justify="center" wrap="nowrap">
-          <Specializes />
-          <CustomAnimationShow>
+          <CustomAnimationShow direction="right">
+            <Specializes />
+          </CustomAnimationShow>
+          <CustomAnimationShow direction="left">
             <Image visibleFrom="sm" h={700} w={600} src={img} radius={"lg"} fit="cover" />
           </CustomAnimationShow>
         </Group>

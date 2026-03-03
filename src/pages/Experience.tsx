@@ -80,7 +80,7 @@ export default function Experience() {
       <Stack mt={"10vh"} mb={50} justify="center">
         <Stack gap={50}>
           {jobs.map((job, i) => (
-            <CustomAnimationShow key={i} delay={i * 0.3}>
+            <CustomAnimationShow key={i} delay={i * 0.1} direction={i % 2 === 0 ? "left" : "right"}>
               <JobSection {...job} />
             </CustomAnimationShow>
           ))}
