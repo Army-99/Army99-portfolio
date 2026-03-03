@@ -1,5 +1,6 @@
 import { Modal, ModalBaseProps, Title } from "@mantine/core";
 import styles from "./CustomModal.module.scss";
+import CustomScrollArea from "./CustomScrollArea";
 
 type Props = {
   opened?: boolean;
@@ -29,7 +30,7 @@ export default function CustomModal({ opened = true, onClose, children, title, s
       centered
       transitionProps={{ transition: "scale", duration: 300 }}
     >
-      {children}
+      <CustomScrollArea h={"80dvh"}>{children}</CustomScrollArea>
     </Modal>
   );
 }

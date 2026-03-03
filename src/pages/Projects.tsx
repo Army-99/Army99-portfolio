@@ -1,17 +1,22 @@
-import { Badge, Box, Center, Divider, Group, List, SimpleGrid, Stack, Text, Title } from "@mantine/core";
+import { Box, Center, Group, SimpleGrid, Stack, Text, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
   IconBell,
   IconBrain,
+  IconCheck,
   IconCoin,
+  IconCode,
   IconDatabase,
+  IconExternalLink,
   IconFileImport,
   IconFileSearch,
   IconLayoutDashboard,
   IconLock,
+  IconPlug,
   IconSearch,
   IconSettings,
   IconSparkles,
+  IconStack2,
   IconTrendingUp,
   IconWorld,
 } from "@tabler/icons-react";
@@ -154,7 +159,7 @@ function BoxProjects({ onDetails }: { onDetails: (title: string, details: Projec
                 "SignalR",
                 "Stripe",
                 "AWS SES",
-                "18 hosted background services",
+                "Hosted background services",
               ],
             },
             {
@@ -167,12 +172,17 @@ function BoxProjects({ onDetails }: { onDetails: (title: string, details: Projec
             },
           ],
           integrations: [
-            "CoinGecko, CoinMarketCap, Zerion, Dune Analytics",
-            "EODHD, FMP, Finnhub",
-            "OpenRouter (Claude / GPT)",
-            "Telegram Bot, AWS SES",
+            "CoinGecko",
+            "CoinMarketCap",
+            "Zerion",
+            "Dune Analytics",
+            "EODHD",
+            "OpenRouter",
+            "Telegram Bot",
+            "AWS SES",
             "Stripe",
-            "NewsAPI, Google Search Console",
+            "NewsAPI",
+            "Google Search Console",
           ],
           link: "https://mymonitorly.com/it",
         }}
@@ -226,70 +236,207 @@ function BoxProjects({ onDetails }: { onDetails: (title: string, details: Projec
   );
 }
 
+const LAYER_COLORS: Record<string, { bg: string; border: string; label: string }> = {
+  Backend: { bg: "rgba(99,102,241,0.12)", border: "rgba(99,102,241,0.35)", label: "#818cf8" },
+  "Frontend App": { bg: "rgba(34,211,238,0.08)", border: "rgba(34,211,238,0.3)", label: "#67e8f9" },
+  "Landing Page": { bg: "rgba(52,211,153,0.08)", border: "rgba(52,211,153,0.3)", label: "#6ee7b7" },
+};
+
+function SectionLabel({ icon, label }: { icon: React.ReactNode; label: string }) {
+  return (
+    <Group gap={8} mb={12}>
+      <Box
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: 30,
+          height: 30,
+          borderRadius: 8,
+          background: "rgba(153,69,255,0.15)",
+          border: "1px solid rgba(153,69,255,0.3)",
+          color: "#c4b5fd",
+          flexShrink: 0,
+        }}
+      >
+        {icon}
+      </Box>
+      <Text
+        fw={700}
+        fz={13}
+        style={{ letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(196,181,253,0.8)" }}
+      >
+        {label}
+      </Text>
+    </Group>
+  );
+}
+
 function ModalContent({ details }: { details: ProjectDetails }) {
   return (
-    <Stack gap="md">
-      <Text c="rgba(255,255,255,0.8)" fz={15}>
-        {details.description}
-      </Text>
+    <Stack gap={28}>
+      {/* ── Description ── */}
+      <Box
+        p={16}
+        style={{
+          borderRadius: 12,
+          borderLeft: "3px solid rgba(153,69,255,0.6)",
+          background: "rgba(153,69,255,0.06)",
+        }}
+      >
+        <Text c="rgba(255,255,255,0.75)" fz={14} lh={1.7}>
+          {details.description}
+        </Text>
+      </Box>
 
-      <Divider />
-
-      <Title order={4} c="site.2">
-        Key Features
-      </Title>
-      <List spacing="xs">
-        {details.features.map((f, i) => (
-          <List.Item key={i}>
-            <Text fz={14} c="rgba(255,255,255,0.85)">
-              {f}
-            </Text>
-          </List.Item>
-        ))}
-      </List>
-
-      <Divider />
-
-      <Title order={4} c="site.2">
-        Tech Stack
-      </Title>
-      <Stack gap="xs">
-        {details.techStack.map((layer, i) => (
-          <Box key={i}>
-            <Text fw={700} fz={14} mb={4} c="rgba(255,255,255,0.9)">
-              {layer.category}
-            </Text>
-            <Group gap={6} wrap="wrap">
-              {layer.items.map((item, j) => (
-                <Badge key={j} variant="light" color="blue" size="sm">
-                  {item}
-                </Badge>
-              ))}
+      {/* ── Features ── */}
+      <Box>
+        <SectionLabel icon={<IconSparkles size={15} />} label="Key Features" />
+        <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={8}>
+          {details.features.map((f, i) => (
+            <Group
+              key={i}
+              gap={10}
+              wrap="nowrap"
+              p={10}
+              style={{
+                borderRadius: 10,
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.07)",
+                alignItems: "flex-start",
+              }}
+            >
+              <Box
+                mt={2}
+                style={{
+                  flexShrink: 0,
+                  width: 18,
+                  height: 18,
+                  borderRadius: 5,
+                  background: "rgba(52,211,153,0.15)",
+                  border: "1px solid rgba(52,211,153,0.35)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#6ee7b7",
+                }}
+              >
+                <IconCheck size={11} stroke={2.5} />
+              </Box>
+              <Text fz={13} c="rgba(255,255,255,0.82)" lh={1.45}>
+                {f}
+              </Text>
             </Group>
-          </Box>
-        ))}
-      </Stack>
+          ))}
+        </SimpleGrid>
+      </Box>
 
-      <Divider />
+      {/* ── Tech Stack ── */}
+      <Box>
+        <SectionLabel icon={<IconStack2 size={15} />} label="Tech Stack" />
+        <Stack gap={10}>
+          {details.techStack.map((layer, i) => {
+            const colors = LAYER_COLORS[layer.category] ?? {
+              bg: "rgba(255,255,255,0.04)",
+              border: "rgba(255,255,255,0.12)",
+              label: "rgba(255,255,255,0.6)",
+            };
+            return (
+              <Box
+                key={i}
+                p={14}
+                style={{
+                  borderRadius: 12,
+                  background: colors.bg,
+                  border: `1px solid ${colors.border}`,
+                }}
+              >
+                <Group gap={6} mb={10} align="center">
+                  <IconCode size={13} color={colors.label} />
+                  <Text
+                    fw={700}
+                    fz={12}
+                    style={{ letterSpacing: "0.06em", textTransform: "uppercase", color: colors.label }}
+                  >
+                    {layer.category}
+                  </Text>
+                </Group>
+                <Group gap={6} wrap="wrap">
+                  {layer.items.map((item, j) => (
+                    <Box
+                      key={j}
+                      px={10}
+                      py={4}
+                      style={{
+                        borderRadius: 6,
+                        background: "rgba(255,255,255,0.06)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        fontSize: 12,
+                        fontWeight: 600,
+                        color: "rgba(255,255,255,0.85)",
+                        letterSpacing: "0.02em",
+                      }}
+                    >
+                      {item}
+                    </Box>
+                  ))}
+                </Group>
+              </Box>
+            );
+          })}
+        </Stack>
+      </Box>
 
-      <Title order={4} c="site.2">
-        External Integrations
-      </Title>
-      <Group gap={6} wrap="wrap">
-        {details.integrations.map((int, i) => (
-          <Badge key={i} variant="light" color="teal" size="sm">
-            {int}
-          </Badge>
-        ))}
-      </Group>
+      {/* ── Integrations ── */}
+      <Box>
+        <SectionLabel icon={<IconPlug size={15} />} label="External Integrations" />
+        <Group gap={7} wrap="wrap">
+          {details.integrations.map((int, i) => (
+            <Box
+              key={i}
+              px={10}
+              py={5}
+              style={{
+                borderRadius: 20,
+                background: "rgba(20,184,166,0.1)",
+                border: "1px solid rgba(20,184,166,0.28)",
+                fontSize: 12,
+                fontWeight: 600,
+                color: "#5eead4",
+                letterSpacing: "0.03em",
+              }}
+            >
+              {int}
+            </Box>
+          ))}
+        </Group>
+      </Box>
 
+      {/* ── CTA ── */}
       {details.link && (
-        <>
-          <Divider />
+        <Box
+          p={20}
+          style={{
+            borderRadius: 14,
+            background: "linear-gradient(135deg, rgba(85,22,220,0.18) 0%, rgba(153,69,255,0.12) 100%)",
+            border: "1px solid rgba(153,69,255,0.25)",
+            textAlign: "center",
+          }}
+        >
+          <Text fz={13} c="rgba(255,255,255,0.55)" mb={14}>
+            Ready to explore the live platform?
+          </Text>
           <Center>
-            <PrimaryButton onClick={() => window.open(details.link, "_blank")}>Live Project</PrimaryButton>
+            <PrimaryButton
+              leftSection={<IconExternalLink size={16} />}
+              miw={180}
+              mih={46}
+              onClick={() => window.open(details.link, "_blank")}
+            >
+              View Live Project
+            </PrimaryButton>
           </Center>
-        </>
+        </Box>
       )}
     </Stack>
   );
