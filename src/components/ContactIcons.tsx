@@ -52,16 +52,24 @@ function ContactIcon({ link, icon, text }: { link?: string; icon?: JSX.Element; 
 
   return (
     <Flex align={"center"} gap={"lg"}>
-      <PrimaryButton mih={isMobile ? 34 : 50} miw={isMobile ? 34 : undefined} p={isMobile ? 4 : undefined}>
+      <PrimaryButton
+        component="a"
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        mih={isMobile ? 34 : 50}
+        miw={isMobile ? 34 : undefined}
+        p={isMobile ? 4 : undefined}
+      >
         {icon}
       </PrimaryButton>
-      <Anchor href={link} target="_blank" underline={"never"}>
-        {text && (
+      {text && (
+        <Anchor href={link} target="_blank" underline={"never"}>
           <Text fz={isMobile ? 12 : 16} c={"rgba(255,255,255,0.75)"}>
             {text}
           </Text>
-        )}
-      </Anchor>
+        </Anchor>
+      )}
     </Flex>
   );
 }
