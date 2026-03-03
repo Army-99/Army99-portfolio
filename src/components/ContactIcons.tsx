@@ -1,8 +1,7 @@
-import { ActionIcon, Anchor, Flex, rem, Text } from "@mantine/core";
+import { Anchor, Flex, rem, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconBrandGithub, IconBrandLinkedin, IconMail, IconPhone } from "@tabler/icons-react";
-import CustomAnimationButton from "./Animations/CustomAnimationButton";
-import styles from "./Buttons.module.scss";
+import PrimaryButton from "./PrimaryButton";
 
 type Props = {
   withText?: boolean;
@@ -50,14 +49,10 @@ function ContactIcon({ link, icon, text }: { link?: string; icon?: JSX.Element; 
 
   return (
     <Flex align={"center"} gap={"lg"}>
-      <CustomAnimationButton>
-        <ActionIcon size={50} onClick={() => window.open(link)} className={text ? styles.primary : styles.transparent}>
-          {icon}
-        </ActionIcon>
-      </CustomAnimationButton>
+      <PrimaryButton mih={50}>{icon}</PrimaryButton>
       <Anchor href={link} target="_blank" underline={"never"}>
         {text && (
-          <Text fz={isMobile ? 12 : 16} c={"site.0"}>
+          <Text fz={isMobile ? 12 : 16} c={"rgba(255,255,255,0.75)"}>
             {text}
           </Text>
         )}

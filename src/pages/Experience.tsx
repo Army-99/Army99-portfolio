@@ -6,6 +6,19 @@ import { useScrollStore } from "../store/scrollStore";
 
 const jobs: JobSectionProps[] = [
   {
+    title: "MyMonitorly",
+    subtitle: "Personal Project",
+    bulletPoints: [
+      "Built a full-stack SaaS platform for retail investors to track hybrid portfolios (crypto, stocks, ETFs, bonds) in a single unified dashboard, differentiating from competitors with institutional-grade on-chain metrics and personalised AI reports.",
+      "Engineered 18 dedicated background hosted services covering real-time price ingestion, technical indicators, Bitcoin on-chain analytics, AI report generation, alert evaluation, and third-party API synchronisation.",
+      "Implemented real-time price, technical and time-based alerts delivered via SignalR WebSocket and Telegram Bot, with Stripe subscription handling and AWS SES email delivery.",
+      "Integrated multiple external data sources: CoinGecko, CoinMarketCap, Zerion, Dune Analytics, EODHD, FMP, Finnhub, OpenRouter (Claude/GPT), NewsAPI and Google Search Console.",
+      "Delivered a mobile-first React + TypeScript frontend (Zustand, React Query, react-i18next IT/EN) backed by an ASP.NET Core API following Repository + Unit of Work architecture with JWT authentication.",
+    ],
+    dateStart: "2024",
+  },
+
+  {
     title: "Full-Stack Developer",
     subtitle: "Abstraqt S.r.l.",
     bulletPoints: [
@@ -14,6 +27,20 @@ const jobs: JobSectionProps[] = [
       "Collaborated in modernizing legacy Java applications and MVC frameworks, achieving a notable speed increase.",
     ],
     dateStart: "2023",
+  },
+  {
+    title: "Autonomous Web3 Gaming Application",
+    subtitle: "Personal Project",
+    bulletPoints: [
+      "Architected a fantasy football game using Next.js for both frontend and backend, leveraging Web3 smart contracts to manage user funds and enable autonomous play-and-earn mechanics.",
+      "Created and deployed smart contracts using Hardhat, handling fund custody and reward distribution entirely on-chain without manual intervention.",
+      "Integrated Web3 authentication to replace traditional login flows, enhancing security and simplifying the user onboarding experience.",
+      "Employed Prisma ORM for structured database management and MongoDB Atlas for scalable, cloud-hosted data storage.",
+      "Integrated Pusher.io for real-time bidding events during soccer player auctions, ensuring a low-latency interactive experience.",
+      "Leveraged Zustand for global state management, optimising performance and keeping UI interactions fast and predictable.",
+    ],
+    dateStart: "2022",
+    dateEnd: "2023",
   },
   {
     title: "Software Engineer",

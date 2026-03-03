@@ -13,7 +13,7 @@ export type CustomLinkProps = {
 
 const CustomHeaderLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(function CustomHeaderLink(
   { hide, label, valueToScroll, onClick },
-  ref
+  ref,
 ) {
   const scrollTo = useScrollStore((s) => s.scrollTo);
 
@@ -24,12 +24,12 @@ const CustomHeaderLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(function
       <CustomAnimationButton>
         <NavLink
           ref={ref}
-          maw={150}
+          miw={200}
           className={styles.link}
           variant="light"
           component="a"
           label={
-            <Text ta={"center"} fw={700} fz={18}>
+            <Text ta={"center"} fw={600} fz={15} style={{ letterSpacing: "0.04em" }}>
               {label}
             </Text>
           }

@@ -1,8 +1,17 @@
 .tooltip {
-    max-width: 400px;
-    font-size: 1rem;
-    background-color: var(--mantine-color-site-2);
-    border-radius: 8px;
-    padding: 16px;
-    color: var(--mantine-color-site-0);
+  max-width: 420px;
+  font-size: 1rem;
+  background: #13131a;
+  border: 1px solid rgba(153, 69, 255, 0.22);
+  border-radius: 14px;
+  padding: 16px 20px;
+  color: rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 0 0 1px rgba(153, 69, 255, 0.1),
+    0 16px 48px rgba(0, 0, 0, 0.7);
+}
+
+.arrow {
+  background: #13131a;
+  border: 1px solid rgba(153, 69, 255, 0.22);
 }

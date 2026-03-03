@@ -1,19 +1,90 @@
-.close {
-  color: var(--mantine-color-site-2);
-  font-weight: 600;
-  transition: background-color 150ms ease;
+/* ─── Overlay blur ─── */
+.overlay {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.62) !important;
+}
 
-  &:hover {
-    background-color: var(--mantine-color-site-1);
+/* ─── Dialog shell ─── */
+.content {
+  background: #13131a;
+  border: 1px solid rgba(153, 69, 255, 0.22);
+  border-radius: 20px !important;
+  box-shadow:
+    0 0 0 1px rgba(153, 69, 255, 0.1),
+    0 40px 100px rgba(0, 0, 0, 0.72),
+    0 0 60px rgba(153, 69, 255, 0.08);
+  overflow: hidden;
+}
+
+/* ─── Header strip ─── */
+.header {
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 24px 28px 20px;
+}
+
+/* ─── Gradient title ─── */
+.title {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  background: linear-gradient(135deg, #fff 40%, #c4b5fd 80%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 !important;
+}
+
+/* ─── Body / scroll area ─── */
+.body {
+  padding: 24px 28px 28px;
+  color: var(--mantine-color-gray-0) !important;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(153, 69, 255, 0.3);
+    border-radius: 2px;
   }
 }
 
-.header {
-  background-color: var(--mantine-color-dark-8);
-  border-bottom: 1px solid var(--mantine-color-site-1);
-}
+/* ─── Close button ─── */
+.closeButton {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s !important;
 
-.body {
-  background-color: var(--mantine-color-dark-8);
-}
+  &::before {
+    display: none;
+  }
 
+  &:hover {
+    background: rgba(153, 69, 255, 0.12) !important;
+    border-color: rgba(153, 69, 255, 0.3) !important;
+    color: #c4b5fd !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  &:active {
+    transform: none !important;
+  }
+}

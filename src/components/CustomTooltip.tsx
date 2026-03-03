@@ -8,7 +8,7 @@ export default function CustomTooltip({ ...rest }: TooltipProps) {
         pointerEvents: "auto",
       }}
       classNames={styles}
-      arrowOffset={15}
+      arrowOffset={75}
       arrowSize={25}
       withArrow
       position="top-start"
