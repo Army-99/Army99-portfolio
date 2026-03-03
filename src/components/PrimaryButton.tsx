@@ -6,7 +6,6 @@ import CustomAnimationButton from "./Animations/CustomAnimationButton";
 export type Props = ButtonProps & {
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
-  component?: React.ElementType;
   href?: string;
   target?: string;
   rel?: string;
