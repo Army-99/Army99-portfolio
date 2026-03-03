@@ -15,7 +15,7 @@ const jobs: JobSectionProps[] = [
       "Integrated multiple external data sources: CoinGecko, CoinMarketCap, Zerion, Dune Analytics, EODHD, FMP, Finnhub, OpenRouter (Claude/GPT), NewsAPI and Google Search Console.",
       "Delivered a mobile-first React + TypeScript frontend (Zustand, React Query, react-i18next IT/EN) backed by an ASP.NET Core API following Repository + Unit of Work architecture with JWT authentication.",
     ],
-    dateStart: "2024",
+    dateStart: "2025",
   },
 
   {
