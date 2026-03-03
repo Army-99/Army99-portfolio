@@ -26,7 +26,13 @@ export default function WhoAmI() {
         </CustomAnimationShow>
       </Center>
       <Center mt={isMobile ? "0" : "20vh"} mb={"10vh"}>
-        <Group p={5} gap={"lg"} align="center" justify="center" wrap="nowrap">
+        <Group
+          p={isMobile ? undefined : 5}
+          gap={isMobile ? undefined : "lg"}
+          align="center"
+          justify="center"
+          wrap="nowrap"
+        >
           <CustomAnimationShow direction="right">
             <Specializes />
           </CustomAnimationShow>

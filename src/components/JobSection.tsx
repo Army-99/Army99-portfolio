@@ -14,7 +14,7 @@ export default function JobSection(props: JobSectionProps) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
-    <Grid className="whiteText" w={"95%"}>
+    <Grid className="whiteText" w="100%" maw={1100} mx="auto" px={{ base: 12, sm: 0 }}>
       <Grid.Col span={3} visibleFrom="sm">
         <Flex h={"100%"} justify={"flex-end"} align={"center"}>
           <Stack align="end">

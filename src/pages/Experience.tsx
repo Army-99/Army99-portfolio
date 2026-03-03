@@ -77,7 +77,7 @@ export default function Experience() {
   return (
     <>
       <div ref={ref} />
-      <Stack mt={"10vh"} mb={50} justify="center">
+      <Stack mt={"10vh"} mb={50} justify="center" px={{ base: 0, sm: "3vw" }} style={{ overflowX: "hidden" }}>
         <Stack gap={50}>
           {jobs.map((job, i) => (
             <CustomAnimationShow key={i} delay={i * 0.1} direction={i % 2 === 0 ? "left" : "right"}>
